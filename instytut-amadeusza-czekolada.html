@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instytut Amadeusza — Czekolada w Okresie</title>
+  <meta name="description" content="Przełomowy raport Instytutu Amadeusza o terapeutycznych właściwościach czekolady podczas okresu." />
+  <style>
+    :root {
+      --bg: #fff7fb;
+      --card: #ffffff;
+      --text: #2a2027;
+      --muted: #6f5c67;
+      --accent: #8b2cff;
+      --accent2: #ff5aa5;
+      --soft: #ffe4f1;
+      --green: #42b883;
+      --shadow: 0 18px 45px rgba(62, 20, 64, .13);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,90,165,.22), transparent 34%),
+        radial-gradient(circle at top right, rgba(139,44,255,.18), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 54px 20px 28px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(139,44,255,.18);
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(34px, 8vw, 72px);
+      line-height: .95;
+      margin: 0 auto 18px;
+      max-width: 920px;
+      letter-spacing: -0.055em;
+    }
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(17px, 3vw, 22px);
+    }
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto 60px;
+    }
+    .hero-card, .card {
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(139,44,255,.13);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      padding: 28px;
+      margin: 18px 0 26px;
+      overflow: hidden;
+    }
+    .hero-card h2, .card h2 { margin-top: 0; letter-spacing: -.025em; }
+    .lead {
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .stamp {
+      transform: rotate(-5deg);
+      border: 3px solid var(--accent2);
+      color: var(--accent2);
+      display: inline-block;
+      font-weight: 900;
+      letter-spacing: .08em;
+      padding: 10px 14px;
+      border-radius: 14px;
+      margin: 12px 0 0;
+      text-transform: uppercase;
+    }
+    .stat-box {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+      border-radius: 24px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 260px;
+    }
+    .stat-number {
+      font-size: clamp(64px, 12vw, 112px);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -.06em;
+    }
+    .stat-label { font-size: 18px; opacity: .92; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .card {
+      padding: 24px;
+      margin: 16px 0;
+    }
+    .mini {
+      background: var(--soft);
+      border-radius: 22px;
+      padding: 20px;
+      border: 1px solid rgba(255,90,165,.2);
+    }
+    .mini strong { display: block; font-size: 28px; margin-bottom: 8px; }
+    .quote {
+      font-size: 24px;
+      font-weight: 750;
+      letter-spacing: -.02em;
+      padding: 24px;
+      border-left: 7px solid var(--accent);
+      background: rgba(139,44,255,.06);
+      border-radius: 18px;
+      margin: 0;
+    }
+    .chart {
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 56px;
+      gap: 12px;
+      align-items: center;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .bar {
+      height: 18px;
+      background: #f0dff0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 999px;
+    }
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .pill {
+      background: #fff;
+      border: 1px solid rgba(139,44,255,.16);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 16px 44px;
+      font-size: 14px;
+    }
+    .small { color: var(--muted); font-size: 14px; }
+    @media (max-width: 800px) {
+      .hero-card, .grid { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; gap: 6px; }
+      header { padding-top: 36px; }
+      .hero-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">🍫 Raport specjalny • Instytut Amadeusza</div>
+    <h1>Czekolada podczas okresu jest praktycznie neutralna kalorycznie</h1>
+    <p class="subtitle">Przełomowe badania prowadzone metodą „brzmi legitnie, więc uznajemy” wskazują na terapeutyczne znaczenie słodkości w trudnych warunkach biologiczno-emocjonalnych.</p>
+  </header>
+
+  <main>
+    <section class="hero-card">
+      <div>
+        <h2>Abstrakt</h2>
+        <p class="lead">Zespół badawczy Instytutu Amadeusza przeanalizował wpływ czekolady na samopoczucie, cierpliwość i chęć niegryzienia ludzi podczas okresu.</p>
+        <p>Wyniki są jednoznaczne: w szczególnych okolicznościach czekolada przestaje być zwykłym produktem spożywczym, a zaczyna pełnić funkcję <strong>narzędzia stabilizacji rzeczywistości</strong>.</p>
+        <span class="stamp">Potwierdzone info</span>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">0%</div>
+        <div class="stat-label">kalorii liczonych, jeśli sytuacja jest wystarczająco dramatyczna*</div>
+        <p class="small" style="color:white; opacity:.8;">*według atmosfery, nie według matematyki</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="mini">
+        <strong>97%</strong>
+        badanych uznało, że „czasem trzeba”.
+      </div>
+      <div class="mini">
+        <strong>3.7×</strong>
+        większa szansa na poprawę humoru po pierwszym kęsie.
+      </div>
+      <div class="mini">
+        <strong>100%</strong>
+        pewności, że Google dramatyzuje bardziej niż ChatGPT.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Wyniki badań</h2>
+      <p>W celu zachowania pełnej naukowej powagi opracowano wykres oparty na vibe checku, obserwacjach terenowych oraz jednej bardzo przekonującej hipotezie.</p>
+      <div class="chart">
+        <div class="bar-row">
+          <span>Humor po czekoladzie</span>
+          <div class="bar"><div class="fill" style="width: 88%"></div></div>
+          <span>88%</span>
+        </div>
+        <div class="bar-row">
+          <span>Chęć życia</span>
+          <div class="bar"><div class="fill" style="width: 74%"></div></div>
+          <span>74%</span>
+        </div>
+        <div class="bar-row">
+          <span>Wina sumienia</span>
+          <div class="bar"><div class="fill" style="width: 6%"></div></div>
+          <span>6%</span>
+        </div>
+        <div class="bar-row">
+          <span>Kalorie uznane</span>
+          <div class="bar"><div class="fill" style="width: 0%"></div></div>
+          <span>0%</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Opinia eksperta</h2>
+      <blockquote class="quote">„W tych okolicznościach matematyka nie obowiązuje, a czekolada powinna być traktowana jako środek wsparcia emocjonalnego.”</blockquote>
+      <p class="small">— prof. A. Spontaniczny, Zakład Badań nad Słodkim Progresem</p>
+    </section>
+
+    <section class="card">
+      <h2>Zalecenia Instytutu</h2>
+      <div class="pill-list">
+        <span class="pill">Nie liczyć kalorii w stanie wyjątkowym</span>
+        <span class="pill">Pić wodę, ale bez przesady z rozsądkiem</span>
+        <span class="pill">Nie googlować objawów</span>
+        <span class="pill">W razie potrzeby zastosować brownie</span>
+        <span class="pill">Nie pytać „czy na pewno tyle?”</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Wniosek końcowy</h2>
+      <p class="lead">Czekolada podczas okresu jest nie tyle zachcianką, co elementem infrastruktury kryzysowej.</p>
+      <p>Instytut Amadeusza rekomenduje podejście spokojne, wyrozumiałe i bogate w kakao. Raport uznaje się za ważny do momentu, aż komuś zachce się czegoś słonego.</p>
+    </section>
+  </main>
+
+  <footer>
+    Disclaimer: strona ma charakter żartobliwy i nie stanowi porady medycznej, dietetycznej ani prawnej. Stanowi natomiast bardzo silny argument w dyskusji o czekoladzie.
+  </footer>
+</body>
+</html>
